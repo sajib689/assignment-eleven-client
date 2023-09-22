@@ -1,20 +1,31 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { registerWithForm } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const image = form.image.value;
-    const user = { name, email, password, image };
-    registerWithForm(email, password).then((result) => {
+    const form = e.target
+    const name = form.name.value
+    const email = form.email.value
+    const password = form.password.value
+    const user = { name, email, password }
+    registerWithForm(email, password)
+    .then((result) => {
       const user = result.user;
       console.log(user);
+      if(user.email) {
+
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Register Success',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
     });
   };
   return (
@@ -30,7 +41,7 @@ const Register = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -70,7 +81,7 @@ const Register = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Register</button>
               </div>
               <p className="text-center">
                 Are you have an{" "}
@@ -78,7 +89,7 @@ const Register = () => {
                   account?
                 </Link>
               </p>
-            </div>
+            </form>
           </div>
         </div>
       </div>
