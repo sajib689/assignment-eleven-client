@@ -1,6 +1,22 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const Register = () => {
+  const { registerWithForm } = useContext(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const image = form.image.value;
+    const user = { name, email, password, image };
+    registerWithForm(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -20,6 +36,7 @@ const Register = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
+                  name="name"
                   type="text"
                   placeholder="name"
                   className="input input-bordered"
@@ -30,6 +47,7 @@ const Register = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
+                  name="email"
                   type="text"
                   placeholder="email"
                   className="input input-bordered"
@@ -40,6 +58,7 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
+                  name="password"
                   type="text"
                   placeholder="password"
                   className="input input-bordered"
@@ -53,8 +72,12 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
-              <p className="text-center">Are you have an <Link className="underline" to='/login'>account?</Link></p>
-
+              <p className="text-center">
+                Are you have an{" "}
+                <Link className="underline" to="/login">
+                  account?
+                </Link>
+              </p>
             </div>
           </div>
         </div>
