@@ -4,39 +4,38 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const {loginWithForm} = useContext(AuthContext)
-  const handleLogin = e => {
+  const { loginWithForm } = useContext(AuthContext);
+  const handleLogin = (e) => {
     e.preventDefault();
-    const form = e.target
-    const email = form.email.value 
-    const password = form.password.value
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
     loginWithForm(email, password)
-    .then( result => {
-      const user = result.user
-      if (user.email) {
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Login Success",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-      
-    })
-    .catch(error => {
-      if (error){
-        Swal.fire({
-          position: "top-center",
-          icon: "error",
-          title: `${error.message}`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    })
+      .then((result) => {
+        const user = result.user;
+        if (user.email) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Login Success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title: `${error.message}`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
     form.reset();
-  }
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -56,7 +55,7 @@ const Login = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                name="email"
+                  name="email"
                   type="text"
                   placeholder="email"
                   className="input input-bordered"
@@ -67,7 +66,7 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                name="password"
+                  name="password"
                   type="text"
                   placeholder="password"
                   className="input input-bordered"
@@ -81,7 +80,12 @@ const Login = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
-              <p className="text-center">Do you want <Link className="underline" to='/register'>register?</Link></p>
+              <p className="text-center">
+                Do you want{" "}
+                <Link className="underline" to="/register">
+                  register?
+                </Link>
+              </p>
             </form>
           </div>
         </div>

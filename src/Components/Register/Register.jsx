@@ -36,7 +36,7 @@ const Register = () => {
           });
         }
       });
-      form.reset();
+    form.reset();
   };
   return (
     <div>
