@@ -2,7 +2,7 @@
 
 const Review = () => {
     return (
-       <div className="grid grid-cols-2">
+       <div className="grid grid-cols-2 bg-base-200">
         
          <div className="grid grid-cols">
             <input type="text" placeholder="Type here name" className="mb-3 input input-bordered w-full max-w-xs" />

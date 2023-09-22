@@ -24,7 +24,7 @@ const Details = () => {
             <h1 className="text-5xl font-bold">{title}</h1>
             <p className="py-6">{description}</p>
             <p className="py-6 font-[600]">Price: {price} Tk</p>
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn text-white bg-[#0178BD] hover:bg-[#0487d3]">Buy Now</button>
           </div>
         </div>
       </div>
