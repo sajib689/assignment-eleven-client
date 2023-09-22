@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import Review from "../Review/Review";
 
 const Details = () => {
   const details = useLoaderData();
@@ -27,6 +28,7 @@ const Details = () => {
           </div>
         </div>
       </div>
+      <Review></Review>
     </div>
   );
 };
