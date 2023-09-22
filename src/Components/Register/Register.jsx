@@ -15,7 +15,6 @@ const Register = () => {
     registerWithForm(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         if (user.email) {
           Swal.fire({
             position: "top-center",
@@ -37,6 +36,7 @@ const Register = () => {
           });
         }
       });
+      form.reset();
   };
   return (
     <div>
