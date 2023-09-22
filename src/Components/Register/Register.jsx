@@ -7,26 +7,36 @@ const Register = () => {
   const { registerWithForm } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
-    const form = e.target
-    const name = form.name.value
-    const email = form.email.value
-    const password = form.password.value
-    const user = { name, email, password }
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const user = { name, email, password };
     registerWithForm(email, password)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-      if(user.email) {
-
-        Swal.fire({
-          position: 'top-center',
-          icon: 'success',
-          title: 'Register Success',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
-    });
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        if (user.email) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Register Success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title: `${error.message}`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
   return (
     <div>
