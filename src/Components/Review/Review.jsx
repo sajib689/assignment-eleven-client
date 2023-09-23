@@ -10,12 +10,12 @@ const Review = ({ _id,title }) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const id = form.id.value;
+    const serviceId = form.serviceId.value;
     const title = form.title.value;
     const email = form.email.value;
     const imageURl = form.imageURl.value;
     const comment = form.comment.value;
-    const reviews = { name, email, imageURl, id,title, comment };
+    const reviews = { name, email, imageURl, serviceId,title, comment };
     fetch("http://localhost:3000/reviews", {
       method: "POST",
       headers: {
@@ -25,7 +25,7 @@ const Review = ({ _id,title }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-       if(data.insertedId > 0) {
+       if(data.acknowledged === true) {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -36,7 +36,6 @@ const Review = ({ _id,title }) => {
        }
       });
       form.reset()
-      loading()
   };
   useEffect(() => {
     fetch(`http://localhost:3000/reviews?email=${user.email}`)
@@ -55,7 +54,7 @@ const Review = ({ _id,title }) => {
           className="mb-3 input input-bordered w-full max-w-xs"
         />
         <input
-          name="id"
+          name="serviceId"
           type="text"
           defaultValue={_id}
           className="hidden mb-3 input input-bordered w-full max-w-xs"

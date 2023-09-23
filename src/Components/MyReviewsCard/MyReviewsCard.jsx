@@ -1,5 +1,8 @@
-const MyReviewsCard = ({ review }) => {
-  const { name, comment, imageURl, title, email } = review;
+import { Link } from 'react-router-dom';
+import del from '../../assets/images/delete.svg'
+import edit from '../../assets/images/edit.gif'
+const MyReviewsCard = ({ review,handleDelete }) => {
+  const { _id, name, comment, imageURl, title, email } = review;
   return (
     <>
     
@@ -17,8 +20,10 @@ const MyReviewsCard = ({ review }) => {
               <td>{name}</td>
               <td>{email}</td>
               <td>{title}</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+              <td className="w-48">{comment}</td>
+              <th className='flex'>
+                <Link onClick={() => handleDelete(_id)}><img className="bg-red-500 p-1 rounded-lg" src={del} alt="" /></Link>
+                <Link ><img className="w-7 ms-3 rounded-lg" src={edit} alt="" /></Link>
               </th>
             </tr>
       
