@@ -34,8 +34,8 @@ const Review = ({ _id }) => {
       });
   }, [user.email]);
   return (
-    <div className="ps-20 mt-20 grid grid-cols-2 bg-base-200">
-      <form onSubmit={handlePost} className="grid grid-cols">
+    <div className="ps-20  grid grid-cols-2 bg-base-200">
+      <form onSubmit={handlePost} className="flex flex-col">
         <input
           name="name"
           type="text"
@@ -72,7 +72,7 @@ const Review = ({ _id }) => {
           value="Post"
         />
       </form>
-      <div>
+      <div className="w-96">
         {reviews.map((review) => (
           <ReviewCard key={review._id} review={review}></ReviewCard>
         ))}
