@@ -28,7 +28,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <Review></Review>
+      <Review _id={_id}></Review>
     </div>
   );
 };
