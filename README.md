@@ -5,3 +5,5 @@
 5. Install firebase and add firebase config
 6. Install react-photo viewer looking for product image in full screen
 7. Install react-sweet alert
+8. Install npm install react-loader-spinner --save
+9.
