@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./../../Providers/AuthProviders";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import Swal from "sweetalert2";
 
 const Review = ({ _id,title }) => {
-  const { user } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const handlePost = (e) => {
     e.preventDefault();
@@ -24,8 +25,18 @@ const Review = ({ _id,title }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+       if(data.insertedId > 0) {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Review Success',
+            showConfirmButton: false,
+            timer: 1500
+          })
+       }
       });
+      form.reset()
+      loading()
   };
   useEffect(() => {
     fetch(`http://localhost:3000/reviews?email=${user.email}`)
