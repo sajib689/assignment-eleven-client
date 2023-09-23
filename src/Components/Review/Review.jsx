@@ -36,6 +36,7 @@ const Review = ({ _id,title }) => {
        }
       });
       form.reset()
+      window.location.reload();
   };
   useEffect(() => {
     fetch(`http://localhost:3000/reviews?email=${user.email}`)
