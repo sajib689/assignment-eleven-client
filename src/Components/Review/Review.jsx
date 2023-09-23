@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./../../Providers/AuthProviders";
 import ReviewCard from "../ReviewCard/ReviewCard";
 
-const Review = ({ _id }) => {
+const Review = ({ _id,title }) => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const handlePost = (e) => {
@@ -10,10 +10,11 @@ const Review = ({ _id }) => {
     const form = e.target;
     const name = form.name.value;
     const id = form.id.value;
+    const title = form.title.value;
     const email = form.email.value;
     const imageURl = form.imageURl.value;
     const comment = form.comment.value;
-    const reviews = { name, email, imageURl, id, comment };
+    const reviews = { name, email, imageURl, id,title, comment };
     fetch("http://localhost:3000/reviews", {
       method: "POST",
       headers: {
@@ -46,6 +47,12 @@ const Review = ({ _id }) => {
           name="id"
           type="text"
           defaultValue={_id}
+          className="hidden mb-3 input input-bordered w-full max-w-xs"
+        />
+        <input
+          name="title"
+          type="text"
+          defaultValue={title}
           className="hidden mb-3 input input-bordered w-full max-w-xs"
         />
         <input
