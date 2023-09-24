@@ -70,7 +70,7 @@ const Navbar = () => {
                   <Link  to='/reviews'>My Review</Link>
                 </li>
                 <li>
-                  <Link>Add Service</Link>
+                  <Link  to='/addservice'>Add Service</Link>
                 </li>
               </>
             ) : (
@@ -87,7 +87,7 @@ const Navbar = () => {
               <Link>About Us</Link>
             </li>
             <li>
-              <Link>Contact Us</Link>
+              <Link to='/contact'>Contact Us</Link>
             </li>
           </ul>
         </div>

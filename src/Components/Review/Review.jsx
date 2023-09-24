@@ -49,6 +49,7 @@ const Review = ({ _id,title }) => {
     <div className="ps-20  grid grid-cols-2 bg-base-200">
       <form onSubmit={handlePost} className="flex flex-col">
         <input
+        required
           name="name"
           type="text"
           placeholder="Type here name"
@@ -73,14 +74,16 @@ const Review = ({ _id,title }) => {
           className="hidden mb-3 input input-bordered w-full max-w-xs"
         />
         <input
+        required
           name="imageURl"
           type="text"
           placeholder="Type here image URL"
           className="mb-3 input input-bordered w-full max-w-xs"
         />
         <textarea
+        required
           name="comment"
-          type=""
+          type="text"
           placeholder="Type here message"
           className="mb-3 input input-bordered w-full max-w-xs"
         />

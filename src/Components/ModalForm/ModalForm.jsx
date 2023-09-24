@@ -63,7 +63,7 @@ const ModalForm = ({ isOpen, onRequestClose, comment, _id }) => {
               type="submit"
               className="ml-2 px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
             >
-              Submit
+              Update
             </button>
           </div>
         </form>

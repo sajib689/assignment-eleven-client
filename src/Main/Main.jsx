@@ -8,6 +8,9 @@ import Home from "../Components/Home/Home";
 import Details from './../Components/Details/Details';
 import MyReviews from './../Components/MyReviews/MyReviews';
 import Blog from "../Components/Blog/Blog";
+import AddService from "../Components/AddService/AddService";
+import PrivateRoutes from './../PrivateRoutes/PrivateRoutes';
+import ContactForm from "../Components/ContactForm/ContactForm";
 
 const router = createBrowserRouter([
     
@@ -46,7 +49,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/reviews',
-                element: <MyReviews></MyReviews>,
+                element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>,
+                
             },
             // {
             //     path: '/reviews/:id',
@@ -56,6 +60,14 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>,
+            },
+            {
+                path: '/addservice',
+                element: <AddService></AddService>,
+            },
+            {
+                path: '/contact',
+                element: <ContactForm></ContactForm>,
             },
         ]
     }
