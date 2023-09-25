@@ -22,13 +22,20 @@ const Services = () => {
      
       <h1 className="text-center text-5xl mb-20 mt-20">Our Services</h1>
      
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 mb-5">
+      {
+        loading ? 
+        <div className="flex items-center justify-center">
+          <Bar /> {/* Replace with your spinner component */}
+        </div>
+        :
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 mb-5">
         {services.slice(0, displayService).map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
         
       </div>
       
+      }
       <div className="flex items-center justify-center mb-20">
       <Link onClick={handleSeeAllClick} to='/services' className="  btn text-white bg-orange-400 hover:bg-[#0487d3]">See All</Link>
       </div>
