@@ -9,7 +9,7 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate()
   useEffect(() => {
-    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews?email=${user.email}`,{
+    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews?email=${user?.email}`,{
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`
@@ -24,14 +24,14 @@ const MyReviews = () => {
           navigate('/')
         }
       });
-  }, [user.email,navigate]);
+  }, [user?.email,navigate]);
   const handleDelete = (_id) => {
     fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+       
         if (data.acknowledged === true) {
           Swal.fire({
             position: "top-center",

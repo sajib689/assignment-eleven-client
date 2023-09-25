@@ -41,7 +41,7 @@ const Review = ({ _id,title }) => {
       window.location.reload();
   };
   useEffect(() => {
-    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews?email=${user.email}`,{
+    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews?email=${user?.email}`,{
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
