@@ -2,17 +2,29 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import MyReviewsCard from "../MyReviewsCard/MyReviewsCard";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  const navigate = useNavigate()
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews?email=${user.email}`)
+    fetch(`http://localhost:3000/reviews?email=${user.email}`,{
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
-        setReviews(data);
+        if(!data.error) {
+          setReviews(data);
+        }
+        else{
+          navigate('/')
+        }
       });
-  }, [user.email]);
+  }, [user.email,navigate]);
   const handleDelete = (_id) => {
     fetch(`http://localhost:3000/reviews/${_id}`, {
       method: "DELETE",
