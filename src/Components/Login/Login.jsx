@@ -2,9 +2,18 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
-
+import g from '../../assets/images/g.png'
 const Login = () => {
-  const { loginWithForm } = useContext(AuthContext);
+  const { loginWithForm,googleLogin } = useContext(AuthContext);
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(result => {
+      const user = result.user
+    })
+    .catch(error => {
+      console.error(error);
+    })
+  }
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -86,6 +95,9 @@ const Login = () => {
                   register?
                 </Link>
               </p>
+              <div className="w-7 mx-auto mt-2">
+                <Link onClick={handleGoogleLogin}><img src={g} alt="" /></Link>
+              </div>
             </form>
           </div>
         </div>

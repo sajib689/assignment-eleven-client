@@ -1,6 +1,6 @@
 const Blog = () => {
   return (
-    <div>
+    <div className="bg-base-200">
       <div className="overflow-x-auto mt-20 ms-20">
         <table className="table">
           {/* head */}

@@ -2,13 +2,13 @@ import img from "../../assets/images/1.webp";
 const AboutDoctor = () => {
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 md:mt-10">
         <div className="hero-content flex-col lg:flex-row">
           <img src={img} className="max-w-sm  rounded-lg shadow-2xl" />
-          <div className="w-1/2">
-            <h2 className="text-3xl font-[600]">MEET THE DOCTOR</h2>
-            <h1 className="text-4xl font-bold">Dr. Shihabur Rahman</h1>
-            <p className="text-2xl font-bold">BDS, FCPS, FWFO (USA)</p>
+          <div className="lg:w-1/2 md:w-2/1 p-2">
+            <h2 className="md:text-2xl sm:text-2xl lg:text-3xl font-[600]">MEET THE DOCTOR</h2>
+            <h1 className="md:text-3xl sm:text-3xl lg:text-4xl font-bold">Dr. Shihabur Rahman</h1>
+            <p className="md:text-1xl sm:text-1xl lg:text-2xl  font-bold">BDS, FCPS, FWFO (USA)</p>
             <p className="py-6">
               LASER DENTAL is one of the most hi-tech dental clinics in Dhaka,
               serving all of your dental needs with special emphasis on 3D

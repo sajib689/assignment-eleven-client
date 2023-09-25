@@ -11,6 +11,7 @@ import Blog from "../Components/Blog/Blog";
 import AddService from "../Components/AddService/AddService";
 import PrivateRoutes from './../PrivateRoutes/PrivateRoutes';
 import ContactForm from "../Components/ContactForm/ContactForm";
+import AboutUs from "../Components/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
     
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <ContactForm></ContactForm>,
+            },
+            {
+                path: '/about',
+                element: <AboutUs></AboutUs>,
             },
         ]
     }

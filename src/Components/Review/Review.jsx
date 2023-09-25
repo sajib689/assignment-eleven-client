@@ -46,7 +46,7 @@ const Review = ({ _id,title }) => {
       });
   }, [user.email]);
   return (
-    <div className="ps-20  grid grid-cols-2 bg-base-200">
+    <div className="lg:ps-20 md:ps-10 sm:ps-10  grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 bg-base-200">
       <form onSubmit={handlePost} className="flex flex-col">
         <input
         required

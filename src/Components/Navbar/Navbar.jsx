@@ -32,23 +32,40 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <Link>Item 1</Link>
-              </li>
-              <li>
-                <Link>Parent</Link>
-                <ul className="p-2">
-                  <li>
-                    <Link>Submenu 1</Link>
-                  </li>
-                  <li>
-                    <Link>Submenu 2</Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <Link>Item 3</Link>
-              </li>
+             <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to="/services">Services</Link>
+            </li>
+            <li>
+              <Link to='/blog'>Blog</Link>
+            </li>
+            {user ? (
+              <>
+                <li>
+                  <Link  to='/reviews'>My Review</Link>
+                </li>
+                <li>
+                  <Link  to='/addservice'>Add Service</Link>
+                </li>
+              </>
+            ) : (
+              <div className="hidden">
+                <li>
+                  <Link>My Review</Link>
+                </li>
+                <li>
+                  <Link>Add Service</Link>
+                </li>
+              </div>
+            )}
+            <li>
+              <Link to='/about'>About Us</Link>
+            </li>
+            <li>
+              <Link to='/contact'>Contact Us</Link>
+            </li>
             </ul>
           </div>
           <Link className="btn btn-ghost normal-case text-xl">Dental Care</Link>
@@ -84,7 +101,7 @@ const Navbar = () => {
               </div>
             )}
             <li>
-              <Link>About Us</Link>
+              <Link to='/about'>About Us</Link>
             </li>
             <li>
               <Link to='/contact'>Contact Us</Link>
