@@ -3,10 +3,9 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import MyReviewsCard from "../MyReviewsCard/MyReviewsCard";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import Bar from "../Bars/Bars";
 
 const MyReviews = () => {
-  const { user,loading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate()
   useEffect(() => {
@@ -71,23 +70,16 @@ const MyReviews = () => {
             </tr>
           </thead>
 
-         {
-          loading ?
-          <div className="flex items-center justify-center">
-          <Bar /> {/* Replace with your spinner component */}
-        </div>
-          :
           <tbody className="mt-20">
-          {reviews.map((review) => (
-            <MyReviewsCard
-              key={review._id}
-              review={review}
-              handleDelete={handleDelete}
-              setReviews={reviews}
-            ></MyReviewsCard>
-          ))}
-        </tbody>
-         }
+            {reviews.map((review) => (
+              <MyReviewsCard
+                key={review._id}
+                review={review}
+                handleDelete={handleDelete}
+                setReviews={reviews}
+              ></MyReviewsCard>
+            ))}
+          </tbody>
         </table>
       </div>
     </>
