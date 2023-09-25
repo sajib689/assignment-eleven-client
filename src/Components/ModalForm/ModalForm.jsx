@@ -7,7 +7,7 @@ const ModalForm = ({ isOpen, onRequestClose, comment, _id }) => {
     const form = e.target;
     const comment = form.comment.value;
     const c = { comment };
-    fetch(`http://localhost:3000/reviews/${_id}`, {
+    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

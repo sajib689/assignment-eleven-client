@@ -33,7 +33,7 @@ const AuthProviders = ({children}) => {
             const loggedUser = {
                 email: currentUser.email
             }
-            fetch('http://localhost:3000/jwt',{
+            fetch('https://assignment-eleven-server-r1xu.vercel.app/jwt',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

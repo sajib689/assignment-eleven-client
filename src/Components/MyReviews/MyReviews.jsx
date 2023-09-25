@@ -9,7 +9,7 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate()
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews?email=${user.email}`,{
+    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews?email=${user.email}`,{
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`
@@ -26,7 +26,7 @@ const MyReviews = () => {
       });
   }, [user.email,navigate]);
   const handleDelete = (_id) => {
-    fetch(`http://localhost:3000/reviews/${_id}`, {
+    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

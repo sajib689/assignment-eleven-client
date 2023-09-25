@@ -9,7 +9,7 @@ const AddService = () => {
         const description = form.description.value
         const price = form.price.value
         const add = {title, img, description, price}
-        fetch(`http://localhost:3000/services`,{
+        fetch(`https://assignment-eleven-server-r1xu.vercel.app/services`,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

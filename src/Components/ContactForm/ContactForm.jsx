@@ -24,7 +24,7 @@ function ContactForm() {
       message: '',
     });
     const user = {formData}
-    fetch('http://localhost:3000/contact',{
+    fetch('https://assignment-eleven-server-r1xu.vercel.app/contact',{
       method: 'POST',
       headers: {
         'content-type': 'application/json'

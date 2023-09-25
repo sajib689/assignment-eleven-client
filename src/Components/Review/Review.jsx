@@ -18,7 +18,7 @@ const Review = ({ _id,title }) => {
     const imageURl = form.imageURl.value;
     const comment = form.comment.value;
     const reviews = { name, email, imageURl, serviceId,title, comment };
-    fetch("http://localhost:3000/reviews", {
+    fetch("https://assignment-eleven-server-r1xu.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,7 +41,7 @@ const Review = ({ _id,title }) => {
       window.location.reload();
   };
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews?email=${user.email}`,{
+    fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews?email=${user.email}`,{
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`,
