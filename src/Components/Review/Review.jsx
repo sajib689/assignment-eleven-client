@@ -18,6 +18,7 @@ const Review = ({ _id,title }) => {
     const imageURl = form.imageURl.value;
     const comment = form.comment.value;
     const reviews = { name, email, imageURl, serviceId,title, comment };
+    console.log(reviews)
     fetch("https://assignment-eleven-server-r1xu.vercel.app/reviews", {
       method: "POST",
       headers: {
@@ -27,7 +28,6 @@ const Review = ({ _id,title }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
        if(data.acknowledged === true) {
         Swal.fire({
             position: 'top-end',
@@ -36,10 +36,12 @@ const Review = ({ _id,title }) => {
             showConfirmButton: false,
             timer: 1500
           })
+          window.location.reload()
        }
-      });
+      }
+      );
       form.reset()
-      window.location.reload();
+      
   };
   useEffect(() => {
     fetch(`https://assignment-eleven-server-r1xu.vercel.app/reviews?email=${user?.email}`,{
