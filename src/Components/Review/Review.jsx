@@ -55,7 +55,7 @@ const Review = ({ _id,title }) => {
           navigate('/')
         }
       });
-  }, [user.email,navigate]);
+  }, [user?.email,navigate]);
   return (
     <div className="lg:ps-20 md:ps-10 sm:ps-10  grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 bg-base-200">
       <form onSubmit={handlePost} className="flex flex-col">
