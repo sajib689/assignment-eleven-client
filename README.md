@@ -7,3 +7,4 @@
 7. Install react-sweet alert
 8. npm install react-loader-spinner --save
 9. npm install --save react-modal
+Live:- https://bd-doctor-client.web.app/
